@@ -7,6 +7,75 @@ A avaliação do código que produzirem, terá como referencia:
 Para já podem começar com as seguintes duas tarefas:
 
 1. Criar funções ou métodos que, de uma lista de pontuações, devolvam a pontuação mais alta, as três pontuações mais altas e a ultima pontuação a ser adicionada à lista.
+---
 2. Determinar se um número ou uma palavra ou mesmo uma frase, é igual quando lida da esquerda para a direita e da direita para a esquerda, exemplos: 23532, "reviver", "socos".
+---
+3. Um site web, pede aos utilizadores que introduzam um nome de utilizador e uma password para se registarem. Escrever um programa que verifique a validade da password de acordo com as seguintes regras:
+       a. Pelo menos uma letra minúscula [a-z]
+       b. Pelo menos uma letra maiúscula [A-Z]
+       c. Pelo menos um número [0-9]
+       d. Pelo menos um caracter dos seguintes [$#@]
+       e. Comprimento mínimo: 6
+       f. Comprimento máximo: 12
+ O programa deve receber uma sequência de passwords separadas por virgulas, deve verificá-las de acordo com os critérios acima. As passwords que passam no critério, devem ser impressas no ecrã e as restantes ignoradas. Por exemplo, com o seguinte input:
+       ACd1234@1,a F1#,2w1E*,2Wz3345
+ Devemos obter o seguinte output:
+       ACd1234@1
+---
+4. Cria um script em Python que leia um ficheiro com o seguinte conteúdo em JSON:
+
+ [
+   {
+       "name": "first",
+       "color": "red",
+       "min_version": 1.1,
+       "max_version": 1.3
+   },
+   {
+       "name": "second",
+       "color": "blue",
+       "min_version": 1.0,
+       "max_version": 1.1
+   },
+   {
+       "name": "third",
+       "color": "red",
+       "min_version": 1.2,
+       "max_version": 1.4
+   },
+   {
+       "name": "fourth",
+       "color": "red",
+       "min_version": 1.3,
+       "max_version": 1.4
+   },
+   {
+       "name": "fifth",
+       "color": "green",
+       "min_version": 1.2,
+       "max_version": 1.3
+   },
+   {
+       "name": "sixth",
+       "color": "red",
+       "min_version": 2.0,
+       "max_version": 2.1
+   },
+   {
+       "name": "seventh",
+       "color": "green",
+       "min_version": 1.2,
+       "max_version": 1.3
+   }
+ ]
+
+ ...e identifique os grupos de elementos compativeis, imprimindo um grupo por linha. Consideram-se elementos compativeis aqueles cujo atributo 'color' seja igual e ainda que a intercepção entre os intervalos compostos pela 'min_version' e 'max_version' não sejam vazios. Por exemplo, no caso acima, o resultado deveria ser:
+
+ first third fourth
+ second
+ fifth seventh
+ sixth
+ ---
+
 Finalmente... e citando o "Marting Golding":
         Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
