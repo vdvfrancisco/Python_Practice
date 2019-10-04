@@ -38,7 +38,7 @@ Para já podem começar com as seguintes duas tarefas:
        "max_version": 1.1
    },
    {
-       "name": "third",
+       "name": "third", 
        "color": "red",
        "min_version": 1.2,
        "max_version": 1.4
