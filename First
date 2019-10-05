@@ -1,0 +1,21 @@
+print("This will read N scores and print the highest, the top 3 and the last inputted score.")
+# N is total_number
+# high is the highest number
+print ("how many numbers do you want to insert?")
+total_number = int (0)
+high = int (0)
+number = [0]
+input (max_number)
+i=1
+for i in total_number:
+    print("Please insert your number:")
+    number[i] = input()
+    print(number)
+    If number[i] > high:
+        high = number[i]
+    i = i + 1
+    If i>1:
+        print("You have chosen "number[i-1] print("and ") number[i])
+    else
+        if i>2:
+            print ("The last 3 numbers inserted were "print(number[-3]) print( number[-2]) print("and") print(number[-1]))
