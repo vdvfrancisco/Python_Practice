@@ -1,21 +1,29 @@
-print("This will read N scores and print the highest, the top 3 and the last inputted score.")
-# N is total_number
-# high is the highest number
-print ("how many numbers do you want to insert?")
-total_number = int (0)
-high = int (0)
-number = [0]
-input (max_number)
-i=1
-for i in total_number:
-    print("Please insert your number:")
+print('This will read N scores and print the highest, the top 3 and the last inputted score.')
+# N is total_numbers to be inserted in the first interaction
+high = int(0)  # high is the highest number recorded SO FAR
+print('How many numbers do you want to insert?')
+total_number = input()
+number = [0] * int(total_number)  # Creates a list with the required number slots
+i = 0
+while i <= int(total_number):  # Starts collecting numbers
+    print('Please insert your number:')
     number[i] = input()
-    print(number)
-    If number[i] > high:
-        high = number[i]
-    i = i + 1
-    If i>1:
-        print("You have chosen "number[i-1] print("and ") number[i])
-    else
-        if i>2:
-            print ("The last 3 numbers inserted were "print(number[-3]) print( number[-2]) print("and") print(number[-1]))
+    if number[i] != '':  # Validates a the number, cannot be blank
+        print('Number ' + str(number[i]) + ' was written to the list in the position number ' + str(i+1))
+        if number[int(i)] > int(high):  # If number is valid, checks for highest number if true
+            high = number[i]
+        elif i > 1:  # Shows last 2 numbers if it is the list has only 2 values
+            print('You have inserted ' + str(number[i-1]) + ' and ' + str(number[i]))
+        elif i > 2:  # List only has 3 numbers
+            print(
+                'You have inserted ' + str(i) +
+                ' in total, the last 3 numbers you inserted were ' + str(number[-1])
+                + ',' + str(number[-2]) +
+                ' and ' + str(number[-3]))
+    else:
+        print('You did not entered a valid number')
+i = i + 1
+
+# tested calling with number=[0,6,4,6] and i=3:
+# print('You have chosen ' + str(number[i-1]) + ' and ' + str(number[i]))
+# You have chosen 4 and 6 -> works
