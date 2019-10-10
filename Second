@@ -1,0 +1,27 @@
+#  2. Determinar se um número ou uma palavra ou mesmo uma frase, é igual quando
+#  lida da esquerda para a direita e da direita para a esquerda, exemplos: 23532, "reviver", "socos".
+#
+print('This program will determine if the word you input is a palindrome,\n'
+      '\n'
+      'which is a word, phrase, or sequence that reads the same backwards as forwards \n'
+      'For example "socos", "reviver" or 23532 \n'
+      '\n'
+      'Please input your word or phrase \n')
+palindrome = tuple(input()) #  Transfer the word into a tuple
+max_count = len(palindrome) #  Count the number of strings in total on the tuple
+i=0
+if max_count <= 2 : #  The minimum for a palindrome are 3 strings
+    print('You have inputted too few characters, try more than 2 !')
+    exit()
+while i < max_count + 1 : #  The max_count +1 is to end the cycle at the right tuple index count
+    if palindrome[i] == palindrome[max_count - 1]: #  Tuples start at 0 so the number will be -1 to adjust for the correct tuple index
+        #  print( str(palindrome[i]) + ' , ' + str(palindrome[max_count - 1]))  # This is here for debug motives to check if the tuple first half was aligned with the other tuple's half
+        i = i + 1
+        max_count = max_count - 1
+        if i == max_count -1: #  This is when there are no more strings to check if they are equal
+            break
+    else:
+        print('You did not inserted a palindrome !!')
+        exit()
+
+print(str(palindrome) + '\n Is a palindrome !!! ')
