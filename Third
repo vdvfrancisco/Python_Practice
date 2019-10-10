@@ -1,0 +1,32 @@
+#  3. Um site web, pede aos utilizadores que introduzam um nome de utilizador e uma password para se registarem. Escrever um programa que verifique a validade da password de acordo com as seguintes regras:
+#  >>       a. Pelo menos uma letra minúscula [a-z]
+#  >>       b. Pelo menos uma letra maiúscula [A-Z]
+#  >>       c. Pelo menos um número [0-9]
+#  >>       d. Pelo menos um caracter dos seguintes [$#@]
+#  >>       e. Comprimento mínimo: 6
+#  >>       f. Comprimento máximo: 12
+#  >> O programa deve receber uma sequência de passwords separadas por virgulas, deve verificá-las de acordo com os critérios acima. As passwords que passam no critério, devem ser impressas no ecrã e as restantes ignoradas. Por exemplo, com o seguinte input:
+#  >>       ACd1234@1,a F1#,2w1E*,2Wz3345
+#  >> Devemos obter o seguinte output:
+#  >>       ACd1234@1
+print('This function will evaluate if the password you input follows this rules: \n'
+      '1) Must contain one lower case letter. \n'
+      '2) Must contain one capital letter. \n'
+      '3) Must contain one number. \n'
+      '4) Must contain one of the following characters: $#@ \n'
+      '5) Must have minimum length of 6 and a maximum of 12 characters .\n'
+      '\n')
+print('Please input your password:')
+password = input ()
+def password_checker (password):
+    l = len(password)
+    for l in range (0, 12) :
+        if len (password) < 6 :
+            print ('Password too short')
+
+        elif len (password) > 12 :
+
+            return print('Password accepted')
+    return
+
+Password_Checker(password)
