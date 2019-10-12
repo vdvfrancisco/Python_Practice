@@ -1,32 +1,58 @@
-#  3. Um site web, pede aos utilizadores que introduzam um nome de utilizador e uma password para se registarem. Escrever um programa que verifique a validade da password de acordo com as seguintes regras:
-#  >>       a. Pelo menos uma letra minúscula [a-z]
-#  >>       b. Pelo menos uma letra maiúscula [A-Z]
-#  >>       c. Pelo menos um número [0-9]
-#  >>       d. Pelo menos um caracter dos seguintes [$#@]
-#  >>       e. Comprimento mínimo: 6
-#  >>       f. Comprimento máximo: 12
-#  >> O programa deve receber uma sequência de passwords separadas por virgulas, deve verificá-las de acordo com os critérios acima. As passwords que passam no critério, devem ser impressas no ecrã e as restantes ignoradas. Por exemplo, com o seguinte input:
-#  >>       ACd1234@1,a F1#,2w1E*,2Wz3345
-#  >> Devemos obter o seguinte output:
-#  >>       ACd1234@1
-print('This function will evaluate if the password you input follows this rules: \n'
+#  3. Um site web, pede aos utilizadores que introduzam um nome de utilizador e uma password para se registarem.
+#  Escrever um programa que verifique a validade da password de acordo com as seguintes regras:
+#     a. Pelo menos uma letra minúscula [a-z]
+#     b. Pelo menos uma letra maiúscula [A-Z]
+#     c. Pelo menos um número [0-9]
+#     d. Pelo menos um caracter dos seguintes [$#@]
+#     e. Comprimento mínimo: 6
+#     f. Comprimento máximo: 12
+# programa deve receber uma sequência de passwords separadas por virgulas,
+#  deve verificá-las de acordo com os critérios acima. As passwords que passam no critério, devem ser impressas no ecrã
+#  e as restantes ignoradas. Por exemplo, com o seguinte input:
+#     ACd1234@1,a F1#,2w1E*,2Wz3345
+# vemos obter o seguinte output:
+#     ACd1234@1
+
+print('This program will print the passwords of a list you input separated by comas that follows this rules: \n'
       '1) Must contain one lower case letter. \n'
       '2) Must contain one capital letter. \n'
       '3) Must contain one number. \n'
       '4) Must contain one of the following characters: $#@ \n'
       '5) Must have minimum length of 6 and a maximum of 12 characters .\n'
       '\n')
-print('Please input your password:')
-password = input ()
-def password_checker (password):
-    l = len(password)
-    for l in range (0, 12) :
-        if len (password) < 6 :
-            print ('Password too short')
-
-        elif len (password) > 12 :
-
-            return print('Password accepted')
-    return
-
-Password_Checker(password)
+password = input('Please input your passwords separated by comma and a space:\n'
+                 'for example: ACd1234@1, a F1#,2w1E*, 2Wz3345 \n')
+list_password = password.split(', ')
+for password in list_password:
+    special_char = lower_char = upper_char = numeric_char = False
+    i = 0  # Resets the conditions check
+    # for each password
+    size = (len(password))  # Determines the size of the password
+    if 6 <= size <= 12:  # Enforces the password's size within 6 - 12 characters
+        valid_char = list(password)  # Breaks the password into single strings
+        while i <= size:
+            if valid_char[i - 1] == ('$' or '#' or '@'):  # Validates if special characters $#@ were inputted
+                special_char = True
+            if valid_char[i - 1].islower:  # Validates if lower characters were inputted
+                lower_char = True
+            if valid_char[i - 1].isupper:  # Validates if upper characters were inputted
+                upper_char = True
+            if 48 > ord(valid_char[i - 1]) < 57 or ord(valid_char[i - 1]) == 32:
+                # Validates if numeric characters were inputted
+                # ord returns ascii value of characters, 48 to 57 are 0 to 9, ord 32 is space
+                numeric_char = True
+            i = i+1
+    else:
+        print(str(password) + ' has incorrect length , must have  minimum length of 6 and a '
+                              'maximum of 12 characters. \n')
+    if special_char and lower_char and upper_char and numeric_char is True:
+        print(str(password) + ' is compliant !!')  # This will validate the password inputted and exit the program
+        # the following code gives user the reason for not accepting password
+    elif special_char is False:
+        print('For ' + str(password) + 'you must input at least one of the following characters: $#@ \n')
+    elif lower_char is False:
+        print('For ' + str(password) + 'you must input at least one lower case letter !! \n')
+    elif upper_char is False:
+        print('For ' + str(password) + ' you must input at least one upper case letter !! \n')
+    elif numeric_char is False:
+        print('For ' + str(password) + ' you must include at least a number !!\n')
