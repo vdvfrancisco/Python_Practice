@@ -1,0 +1,74 @@
+# E mais outra:
+#
+# 4. Cria um script em Python que leia um ficheiro com o seguinte conteúdo em JSON:
+#
+# [
+#{
+#    "name": "first",
+#    "color": "red",
+#    "min_version": 1.1,
+#    "max_version": 1.3
+#},
+#{
+#    "name": "second",
+#    "color": "blue",
+#    "min_version": 1.0,
+#    "max_version": 1.1
+#},
+#{
+#    "name": "third",
+#    "color": "red",
+#    "min_version": 1.2,
+#    "max_version": 1.4
+#},
+#{
+#    "name": "fourth",
+#    "color": "red",
+#    "min_version": 1.3,
+#    "max_version": 1.4
+#},
+#{
+#    "name": "fifth",
+#    "color": "green",
+#    "min_version": 1.2,
+#    "max_version": 1.3
+#},
+#{
+#    "name": "sixth",
+#    "color": "red",
+#    "min_version": 2.0,
+#    "max_version": 2.1
+#},
+#{
+#    "name": "seventh",
+#    "color": "green",
+#    "min_version": 1.2,
+#    "max_version": 1.3
+#}
+# ]
+#
+# ...e identifique os grupos de elementos compativeis, imprimindo um grupo por linha. Consideram-se elementos compativeis aqueles cujo atributo 'color'
+# seja igual e ainda que a intercepção entre os intervalos compostos pela 'min_version' e 'max_version' não sejam vazios. Por exemplo, no caso acima, o resultado deveria ser:
+#
+# first third fourth
+# second
+# fifth seventh
+# sixth
+#A ideia é identificar os elementos que são compativeis - ou seja, tem a mesma cor e ainda onde existe overlap nos intervalos min_version e max_version entre eles.
+#Por exemplo, os elementos 'first', 'third' e 'fourth' são compativeis, porque:
+#        - todos têm a mesma 'color' - 'red'.
+#        - a intercepção dos intervalos, não é vazia:
+#                - first - [1.1,1.3]
+#                - third - [1.2,1.4]
+#                - fourth - [1.3, 1.4]
+#                - resultado final da intercepção - [1.3,1.3], que é diferente de 'vazio'.
+#O elemento 'sixth' não é compativel com os anteriores, porque apesar de ter a mesma cor, o intervalo é [2.0, 2.1] que quando interceptado com qualquer dos intervalos anteriores dá um resultado vazio.
+
+print('This program will read a JSON file and check for groups of compatible elements\n'
+      'where they have the same color and can fit the interval into one another.')
+command = input('Please choose a file to open:\n'
+                'You can test with input.txt\n')
+file = open(str(command), "r")
+print(file.read())
+file.close()
+#divide by name and then just subtract the values where the result must be positive
