@@ -1,25 +1,22 @@
 import json
-print('This program will read a JSON file and check for groups of compatible elements\n'
+print('This program will read a JSON file and check for groups of compatible elements \n'
       'where they have the same color and can fit the interval into one another.')
-#command = input('Please choose a file to open:\n'
-#                'You can test with input.txt\n')
-#file = open(str(command), "r")
-red = blue = green = []  # lists needed to be created for later use
-file = open('input.json')
-d = json.load(file)  # Imports the JSON file into a python string dictionary
-for i in range (0 , len(d)) :  # Counts colors
-    color = d.get('color')
-    print(str(i) + ' ' + d[i]['name'] + ' ' + d[i]['color'])
-    if color == 'red' :
-        red.append(color)  # Gets the name to later compare min and max
-    elif color == 'blue' :
-        blue.append(['color'])
-    elif color == 'green' :
-        green.append(d[i]['color'])
-#d.get ("red")
-print (red)
-print(blue)
-print(green)
-print (len(d))
+data = []
+redmin = bluemin = greenmin = 0
+
+with open('input.json', 'r') as file:  # Reads the json file
+    data = file.read ()  # copies the json file into a variable
+    jfile = json.loads(data)  # Converts the json file into strings
+    for element in jfile:
+         if element['color'] =='red':
+             
+             if element['min_version'] > redmin:
+                 redmin = element['min_version']
+                 print (str(element['min_version']))
+        # elif element['color'] =='blue':
+        #     print('blue')
+        # elif element['color'] == 'green':
+        #     print('green')
+    print('\n This program has processed '+ str(len(jfile))+ ' elements.')
 
 file.close( )  # Closes file, finalizing the open command
